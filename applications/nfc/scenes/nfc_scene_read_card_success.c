@@ -34,7 +34,8 @@ void nfc_scene_read_card_success_on_enter(void* context) {
 
     widget_add_button_element(
         widget, GuiButtonTypeLeft, "Retry", nfc_scene_read_card_success_widget_callback, nfc);
-    if(data->device == NfcDeviceNfca) {
+    if(data->device == NfcDeviceNfca || data->device == NfcDeviceNfcb || data->device == NfcDeviceNfcf || data->device == NfcDeviceNfcv) {
+    // if(data->device == NfcDeviceNfca) {
         widget_add_button_element(
             widget, GuiButtonTypeRight, "More", nfc_scene_read_card_success_widget_callback, nfc);
         widget_add_icon_element(widget, 8, 13, &I_Medium_chip_22x21);
